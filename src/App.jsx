@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
@@ -58,21 +58,23 @@ const App = () => {
 		<Router>
 			<div className="container">
 				<Header />
-				<Route
-					path="/"
-					exact
-					render={() => (
-						<>
-							<AddTask handleTaskAddition={handleTaskAddition} />
-							<Tasks
-								tasks={tasks}
-								handleTaskClick={handleTaskClick}
-								handleTaskDeletion={handleTaskDeletion}
-							/>
-						</>
-					)}
-				/>
-				<Route path="/:taskTitle" exact component={TaskDetails} />
+				<Routes>
+					<Route
+						path="/"
+						exact
+						render={() => (
+							<>
+								<AddTask handleTaskAddition={handleTaskAddition} />
+								<Tasks
+									tasks={tasks}
+									handleTaskClick={handleTaskClick}
+									handleTaskDeletion={handleTaskDeletion}
+								/>
+							</>
+						)}
+					/>
+					<Route path="/:taskTitle" exact component={TaskDetails} />
+				</Routes>
 			</div>
 		</Router>
 	);

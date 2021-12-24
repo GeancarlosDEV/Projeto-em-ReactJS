@@ -5,10 +5,10 @@ import { useNavigate } from "react-router-dom";
 import "./Task.css";
 
 const Task = ({ task, handleTaskClick, handleTaskDeletion }) => {
-	const history = useNavigate();
+	const navigate = useNavigate();
 
 	const handleTaskDetailsClick = () => {
-		history.push(`/${task.title}`);
+		navigate.push(`/${task.title}`);
 	};
 
 	return (

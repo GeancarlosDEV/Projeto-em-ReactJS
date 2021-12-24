@@ -7,10 +7,10 @@ import "./TaskDetails.css";
 
 const TaskDetails = () => {
 	const params = useParams();
-	const history = useNavigate();
+	const navigate = useNavigate();
 
 	const handleBackButtonClick = () => {
-		history.goBack();
+		navigate.goBack();
 	};
 
 	return (
